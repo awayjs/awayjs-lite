@@ -23,11 +23,13 @@
     "url": "https://github.com/awayjs/awayjs-lite/issues"
   },
   "homepage": "https://github.com/awayjs/awayjs-lite#readme",
-  "devDependencies": {
-    "awayjs-core": "^0.6.25",
+  "dependencies": {
+    "awayjs-core": "^0.6.0",
     "awayjs-display": "^0.8.36",
     "awayjs-renderergl": "^0.8.26",
-    "awayjs-stagegl": "^0.8.12",
+    "awayjs-stagegl": "^0.8.12"
+  },
+  "devDependencies": {
     "ts-loader": "^0.8.2",
     "typescript": "^1.9.0-dev.20160411",
     "uglifyjs": "^2.4.10",
