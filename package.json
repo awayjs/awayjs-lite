@@ -1,0 +1,36 @@
+{
+  "name": "awayjs-lite",
+  "version": "5.0.0",
+  "description": "Minimal monolitic build for simple AwayJS projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awayjs/awayjs-lite.git"
+  },
+  "keywords": [
+    "AwayJS",
+    "WebGL",
+    "2D",
+    "3D",
+    "graphics"
+  ],
+  "author": "Rob Bateman",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/awayjs/awayjs-lite/issues"
+  },
+  "homepage": "https://github.com/awayjs/awayjs-lite#readme",
+  "devDependencies": {
+    "awayjs-core": "^0.6.25",
+    "awayjs-display": "^0.8.36",
+    "awayjs-renderergl": "^0.8.26",
+    "awayjs-stagegl": "^0.8.12",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.9.0-dev.20160411",
+    "uglifyjs": "^2.4.10",
+    "webpack": "^1.12.15"
+  }
+}
