@@ -1,6 +1,6 @@
 {
   "name": "awayjs-lite",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Minimal monolitic build for simple AwayJS projects",
   "main": "index.js",
   "scripts": {
