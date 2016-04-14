@@ -9,6 +9,7 @@ import * as graphics				from "./lib/graphics";
 import * as image					from "./lib/image";
 import * as library					from "./lib/library";
 import * as materials				from "./lib/materials";
+import * as net						from "./lib/net";
 import * as parsers					from "./lib/parsers";
 import * as partition				from "./lib/partition";
 import * as prefabs					from "./lib/prefabs";
@@ -92,6 +93,7 @@ export {
 	attributes,
 	base,
 	controllers,
+	display,
 	errors,
 	events,
 	geom,
@@ -99,6 +101,7 @@ export {
 	image,
 	library,
 	materials,
+	net,
 	parsers,
 	partition,
 	prefabs,
