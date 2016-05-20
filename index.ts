@@ -18,41 +18,39 @@ import * as textures				from "./lib/textures";
 import * as ui						from "./lib/ui";
 import * as utils					from "./lib/utils";
 
-import {default as GL_AttributesBuffer}				from "awayjs-stagegl/lib/attributes/GL_AttributesBuffer";
-import {default as GL_BitmapImage2D}				from "awayjs-stagegl/lib/image/GL_BitmapImage2D";
-import {default as GL_BitmapImageCube}				from "awayjs-stagegl/lib/image/GL_BitmapImageCube";
-import {default as GL_RenderImage2D}				from "awayjs-stagegl/lib/image/GL_RenderImage2D";
-import {default as GL_RenderImageCube}				from "awayjs-stagegl/lib/image/GL_RenderImageCube";
-import {default as GL_Sampler2D}					from "awayjs-stagegl/lib/image/GL_Sampler2D";
-import {default as GL_SamplerCube}					from "awayjs-stagegl/lib/image/GL_SamplerCube";
+import {GL_AttributesBuffer}			from "awayjs-stagegl/lib/attributes/GL_AttributesBuffer";
+import {Stage}						from "awayjs-stagegl/lib/base/Stage";
+import {GL_BitmapImage2D}				from "awayjs-stagegl/lib/image/GL_BitmapImage2D";
+import {GL_BitmapImageCube}			from "awayjs-stagegl/lib/image/GL_BitmapImageCube";
+import {GL_RenderImage2D}				from "awayjs-stagegl/lib/image/GL_RenderImage2D";
+import {GL_RenderImageCube}			from "awayjs-stagegl/lib/image/GL_RenderImageCube";
+import {GL_Sampler2D}					from "awayjs-stagegl/lib/image/GL_Sampler2D";
+import {GL_SamplerCube}				from "awayjs-stagegl/lib/image/GL_SamplerCube";
 
-import {default as CameraNode}						from "awayjs-display/lib/partition/CameraNode";
-import {default as EntityNode}						from "awayjs-display/lib/partition/EntityNode";
-import {default as SkyboxNode}						from "awayjs-display/lib/partition/SkyboxNode";
+import {View}							from "awayjs-display/lib/View";
+import {CameraNode}					from "awayjs-display/lib/partition/CameraNode";
+import {EntityNode}					from "awayjs-display/lib/partition/EntityNode";
+import {SkyboxNode}					from "awayjs-display/lib/partition/SkyboxNode";
 
-import View											from "awayjs-display/lib/View";
+import {GL_LineElements}				from "awayjs-renderergl/lib/elements/GL_LineElements";
+import {GL_TriangleElements}			from "awayjs-renderergl/lib/elements/GL_TriangleElements";
 
-import {default as ElementsPool}					from "awayjs-renderergl/lib/elements/ElementsPool";
-import {default as GL_LineElements}					from "awayjs-renderergl/lib/elements/GL_LineElements";
-import {default as GL_TriangleElements}				from "awayjs-renderergl/lib/elements/GL_TriangleElements";
+import {GL_BillboardRenderable}		from "awayjs-renderergl/lib/renderables/GL_BillboardRenderable";
+import {GL_GraphicRenderable}			from "awayjs-renderergl/lib/renderables/GL_GraphicRenderable";
+import {GL_LineSegmentRenderable}		from "awayjs-renderergl/lib/renderables/GL_LineSegmentRenderable";
+import {GL_SkyboxRenderable}			from "awayjs-renderergl/lib/renderables/GL_SkyboxRenderable";
 
-import {default as GL_BillboardRenderable}			from "awayjs-renderergl/lib/renderables/GL_BillboardRenderable";
-import {default as GL_GraphicRenderable}			from "awayjs-renderergl/lib/renderables/GL_GraphicRenderable";
-import {default as GL_LineSegmentRenderable}		from "awayjs-renderergl/lib/renderables/GL_LineSegmentRenderable";
-import {default as GL_SkyboxRenderable}				from "awayjs-renderergl/lib/renderables/GL_SkyboxRenderable";
+import {ShaderBase}					from "awayjs-renderergl/lib/shaders/ShaderBase";
 
-import {default as ShaderBase}						from "awayjs-renderergl/lib/shaders/ShaderBase";
+import {GL_BasicMaterialSurface}		from "awayjs-renderergl/lib/surfaces/GL_BasicMaterialSurface";
+import {GL_SkyboxSurface}				from "awayjs-renderergl/lib/surfaces/GL_SkyboxSurface";
+import {SurfacePool}					from "awayjs-renderergl/lib/surfaces/SurfacePool";
 
-import {default as GL_BasicMaterialSurface}			from "awayjs-renderergl/lib/surfaces/GL_BasicMaterialSurface";
-import {default as GL_SkyboxSurface}				from "awayjs-renderergl/lib/surfaces/GL_SkyboxSurface";
-import {default as SurfacePool}						from "awayjs-renderergl/lib/surfaces/SurfacePool";
+import {GL_Single2DTexture}			from "awayjs-renderergl/lib/textures/GL_Single2DTexture";
+import {GL_SingleCubeTexture}			from "awayjs-renderergl/lib/textures/GL_SingleCubeTexture";
 
-import {default as GL_Single2DTexture}				from "awayjs-renderergl/lib/textures/GL_Single2DTexture";
-import {default as GL_SingleCubeTexture}			from "awayjs-renderergl/lib/textures/GL_SingleCubeTexture";
-
-import DefaultRenderer								from "awayjs-renderergl/lib/DefaultRenderer";
-import RendererBase									from "awayjs-renderergl/lib/RendererBase";
-
+import {DefaultRenderer}				from "awayjs-renderergl/lib/DefaultRenderer";
+import {RendererBase}					from "awayjs-renderergl/lib/RendererBase";
 
 library.Loader.enableParser(parsers.Image2DParser);
 library.Loader.enableParser(parsers.ImageCubeParser);
@@ -78,8 +76,8 @@ base.Stage.registerAbstraction(GL_SamplerCube, image.SamplerCube);
 SurfacePool.registerAbstraction(GL_BasicMaterialSurface, materials.BasicMaterial);
 SurfacePool.registerAbstraction(GL_SkyboxSurface, display.Skybox);
 
-ElementsPool.registerAbstraction(GL_LineElements, graphics.LineElements);
-ElementsPool.registerAbstraction(GL_TriangleElements, graphics.TriangleElements);
+Stage.registerAbstraction(GL_LineElements, graphics.LineElements);
+Stage.registerAbstraction(GL_TriangleElements, graphics.TriangleElements);
 
 ShaderBase.registerAbstraction(GL_Single2DTexture, textures.Single2DTexture);
 ShaderBase.registerAbstraction(GL_SingleCubeTexture, textures.SingleCubeTexture);
